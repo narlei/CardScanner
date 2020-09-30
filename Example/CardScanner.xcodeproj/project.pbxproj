@@ -30,8 +30,8 @@
 /* Begin PBXFileReference section */
 		0C423A6E327E95CF34FB4F56 /* Pods-CardScanner_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CardScanner_Example.release.xcconfig"; path = "Target Support Files/Pods-CardScanner_Example/Pods-CardScanner_Example.release.xcconfig"; sourceTree = "<group>"; };
 		1E3AB80257BDCBE88DF7760B /* Pods_CardScanner_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CardScanner_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		2AF551993C2E0A934F282621 /* CardScanner.podspec */ = {isa = PBXFileReference; includeInIndex = 1; name = CardScanner.podspec; path = ../CardScanner.podspec; sourceTree = "<group>"; };
-		2DB95B0EE08B2A443CDF65CC /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
+		2AF551993C2E0A934F282621 /* CardScanner.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = CardScanner.podspec; path = ../CardScanner.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		2DB95B0EE08B2A443CDF65CC /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		607FACD01AFB9204008FA782 /* CardScanner_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CardScanner_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACD41AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		607FACD51AFB9204008FA782 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -46,7 +46,7 @@
 		7552622917E8943621EF7401 /* Pods-CardScanner_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CardScanner_Example.debug.xcconfig"; path = "Target Support Files/Pods-CardScanner_Example/Pods-CardScanner_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		BDFC5D3C9ABB34684757FC45 /* Pods-CardScanner_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CardScanner_Tests.debug.xcconfig"; path = "Target Support Files/Pods-CardScanner_Tests/Pods-CardScanner_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		BFC71E64D56BDE8FFBAD5BD4 /* Pods_CardScanner_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CardScanner_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		DFFC19F6B1A3C19323DA8B98 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; name = README.md; path = ../README.md; sourceTree = "<group>"; };
+		DFFC19F6B1A3C19323DA8B98 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -147,7 +147,6 @@
 				BDFC5D3C9ABB34684757FC45 /* Pods-CardScanner_Tests.debug.xcconfig */,
 				62A70FCA1B226F8F20D5AFA2 /* Pods-CardScanner_Tests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -213,10 +212,12 @@
 				TargetAttributes = {
 					607FACCF1AFB9204008FA782 = {
 						CreatedOnToolsVersion = 6.3.1;
+						DevelopmentTeam = HQKT5G7NHC;
 						LastSwiftMigration = 0900;
 					};
 					607FACE41AFB9204008FA782 = {
 						CreatedOnToolsVersion = 6.3.1;
+						DevelopmentTeam = HQKT5G7NHC;
 						LastSwiftMigration = 0900;
 						TestTargetID = 607FACCF1AFB9204008FA782;
 					};
@@ -227,6 +228,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 				Base,
 			);
@@ -419,7 +421,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -465,7 +467,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
@@ -478,7 +480,9 @@
 			baseConfigurationReference = 7552622917E8943621EF7401 /* Pods-CardScanner_Example.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = HQKT5G7NHC;
 				INFOPLIST_FILE = CardScanner/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MODULE_NAME = ExampleApp;
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.$(PRODUCT_NAME:rfc1034identifier)";
@@ -493,7 +497,9 @@
 			baseConfigurationReference = 0C423A6E327E95CF34FB4F56 /* Pods-CardScanner_Example.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = HQKT5G7NHC;
 				INFOPLIST_FILE = CardScanner/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MODULE_NAME = ExampleApp;
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.$(PRODUCT_NAME:rfc1034identifier)";
@@ -507,6 +513,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = BDFC5D3C9ABB34684757FC45 /* Pods-CardScanner_Tests.debug.xcconfig */;
 			buildSettings = {
+				DEVELOPMENT_TEAM = HQKT5G7NHC;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -529,6 +536,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 62A70FCA1B226F8F20D5AFA2 /* Pods-CardScanner_Tests.release.xcconfig */;
 			buildSettings = {
+				DEVELOPMENT_TEAM = HQKT5G7NHC;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
 					"$(inherited)",

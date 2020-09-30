@@ -1,0 +1,22 @@
+{
+  "name": "CardScanner",
+  "version": "0.1.0",
+  "summary": "A short description of CardScanner.",
+  "description": "TODO: Add long description of the pod here.",
+  "homepage": "https://github.com/Narlei Moreira/CardScanner",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "Narlei Moreira": "narlei.guitar@gmail.com"
+  },
+  "source": {
+    "git": "https://github.com/Narlei Moreira/CardScanner.git",
+    "tag": "0.1.0"
+  },
+  "platforms": {
+    "ios": "8.0"
+  },
+  "source_files": "CardScanner/Classes/**/*"
+}
