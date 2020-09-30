@@ -136,7 +136,7 @@ public class CardScanner: UIViewController {
         viewGuide.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 0).isActive = true
         viewGuide.topAnchor.constraint(equalTo: view.topAnchor, constant: 0).isActive = true
         viewGuide.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: 0).isActive = true
-        view.bringSubview(toFront: viewGuide)
+        view.bringSubviewToFront(viewGuide)
 
         let bottomY = (UIScreen.main.bounds.height / 2) + (height / 2) - 100
 
