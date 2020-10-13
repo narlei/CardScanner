@@ -39,6 +39,13 @@ let scannerView = CardScanner.getScanner { card, date, cvv in
 present(scannerView, animated: true, completion: nil)
 ```
 
+Currently working with:
+- Number 15 or 16 digits
+- CVV 3 digits
+- Date MM/YYYY or MM/YY
+
+
+
 Do not forget add `NSCameraUsageDescription` to your Info.plist
 
 You can custom the texts using the scannerView.:

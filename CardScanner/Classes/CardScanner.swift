@@ -46,6 +46,7 @@ public class CardScanner: UIViewController {
     public var hintBottomText = "Touch a recognized value to delete the value and try again"
     public var buttonConfirmTitle = "Confirm"
     public var buttonConfirmBackgroundColor: UIColor = .red
+    public var viewTitle = "Card scanner"
 
     // MARK: - Instance dependencies
 
@@ -80,7 +81,7 @@ public class CardScanner: UIViewController {
         super.viewDidLoad()
         setupCaptureSession()
         captureSession.startRunning()
-        title = "Scanner card"
+        title = viewTitle
 
         let buttomItem = UIBarButtonItem(barButtonSystemItem: .stop, target: self, action: #selector(scanCompleted))
         buttomItem.tintColor = .white
@@ -296,7 +297,7 @@ public class CardScanner: UIViewController {
             let trimmed = line.replacingOccurrences(of: " ", with: "")
 
             if creditCardNumber == nil && trimmed.count > 10, let cardNumber = Int(trimmed) {
-                if cardNumber > 0 && trimmed.count == 16 {
+                if cardNumber > 0 && trimmed.count >= 15 && trimmed.count <= 16{
                     creditCardNumber = line
                     DispatchQueue.main.async {
                         self.labelCardNumber?.text = line
