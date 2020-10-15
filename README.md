@@ -7,7 +7,11 @@
 
 To run the example project, clone the repo, and run `pod install` from the Example directory first.
 
-![](Screenshots/sample.gif)
+|   |   |   |
+|---|---|---|
+|![](Screenshots/sample.gif)|![](Screenshots/sample2.gif)|![](Screenshots/sample3.gif)|
+
+
 
 ## Requirements
 
@@ -49,6 +53,7 @@ Currently working with:
 Do not forget add `NSCameraUsageDescription` to your Info.plist
 
 You can custom the texts using the scannerView.:
+
 - hintTopText
 - hintBottomText
 - buttonConfirmTitle
@@ -58,6 +63,12 @@ You can custom the texts using the scannerView.:
 
 Narlei Moreira, narlei.guitar@gmail.com
 
+If do you like, give your ⭐️
+
 ## License
 
 CardScanner is available under the MIT license. See the LICENSE file for more info.
+
+## Pay me a coffee:
+
+[![paypal](https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=NMQM9R9GLZQXC&lc=BR&item_name=Narlei%20Moreira&item_number=development%2fdesign&currency_code=BRL&bn=PP%2dDonationsBF%3abtn_donateCC_LG%2egif%3aNonHosted)
