@@ -151,6 +151,7 @@ public class CardScanner: UIViewController {
         labelCardNumber?.font = UIFont.systemFont(ofSize: 17, weight: .bold)
         labelCardNumber?.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(clearCardNumber)))
         labelCardNumber?.isUserInteractionEnabled = true
+        labelCardNumber?.textColor = .white
 
         let labelCardDateX = viewX + 20
         let labelCardDateY = bottomY - 90
@@ -162,6 +163,7 @@ public class CardScanner: UIViewController {
         labelCardDate?.font = UIFont.systemFont(ofSize: 17, weight: .bold)
         labelCardDate?.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(clearCardDate)))
         labelCardDate?.isUserInteractionEnabled = true
+        labelCardDate?.textColor = .white
 
         let labelCardCVVX = viewX + 200
         let labelCardCVVY = bottomY - 90
@@ -173,6 +175,7 @@ public class CardScanner: UIViewController {
         labelCardCVV?.font = UIFont.systemFont(ofSize: 17, weight: .bold)
         labelCardCVV?.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(clearCardCVV)))
         labelCardCVV?.isUserInteractionEnabled = true
+        labelCardCVV?.textColor = .white
 
         let labelHintTopY = viewY - 40
         labelHintTop = UILabel(frame: CGRect(x: labelCardCVVX, y: labelCardCVVY, width: widht, height: 30))
@@ -185,6 +188,7 @@ public class CardScanner: UIViewController {
         labelHintTop?.text = hintTopText
         labelHintTop?.numberOfLines = 0
         labelHintTop?.textAlignment = .center
+        labelHintTop?.textColor = .white
 
         let labelHintBottomY = bottomY + 30
         labelHintBottom = UILabel(frame: CGRect(x: labelCardCVVX, y: labelCardCVVY, width: widht, height: 30))
@@ -197,6 +201,7 @@ public class CardScanner: UIViewController {
         labelHintBottom?.text = hintBottomText
         labelHintBottom?.numberOfLines = 0
         labelHintBottom?.textAlignment = .center
+        labelHintBottom?.textColor = .white
 
         let buttonCompleteX = viewX
         let buttonCompleteY = UIScreen.main.bounds.height - 90
@@ -212,7 +217,7 @@ public class CardScanner: UIViewController {
         buttonComplete?.layer.cornerRadius = 10
         buttonComplete?.layer.masksToBounds = true
         buttonComplete?.addTarget(self, action: #selector(scanCompleted), for: .touchUpInside)
-        
+
         view.backgroundColor = .black
     }
 
@@ -289,36 +294,41 @@ public class CardScanner: UIViewController {
             return
         }
 
-        let myText = texts.flatMap({ $0.topCandidates(10).map({ $0.string }) })
+        let arrayLines = texts.flatMap({ $0.topCandidates(20).map({ $0.string }) })
 
-        for line in myText {
+        for line in arrayLines {
             print("Trying to parse: \(line)")
 
             let trimmed = line.replacingOccurrences(of: " ", with: "")
 
-            if creditCardNumber == nil && trimmed.count > 10, let cardNumber = Int(trimmed) {
-                if cardNumber > 0 && trimmed.count >= 15 && trimmed.count <= 16{
-                    creditCardNumber = line
-                    DispatchQueue.main.async {
-                        self.labelCardNumber?.text = line
-                        self.tapticFeedback()
-                    }
-                    continue
+            if creditCardNumber == nil &&
+                trimmed.count >= 15 &&
+                trimmed.count <= 16 &&
+                trimmed.isOnlyNumbers {
+                creditCardNumber = line
+                DispatchQueue.main.async {
+                    self.labelCardNumber?.text = line
+                    self.tapticFeedback()
                 }
+                continue
             }
 
-            if creditCardCVV == nil && trimmed.count == 3, let cardNumber = Int(trimmed) {
-                if cardNumber > 0 {
-                    creditCardCVV = line
-                    DispatchQueue.main.async {
-                        self.labelCardCVV?.text = line
-                        self.tapticFeedback()
-                    }
-                    continue
+            if creditCardCVV == nil &&
+                trimmed.count == 3 &&
+                trimmed.isOnlyNumbers {
+                creditCardCVV = line
+                DispatchQueue.main.async {
+                    self.labelCardCVV?.text = line
+                    self.tapticFeedback()
                 }
+                continue
             }
 
-            if creditCardDate == nil && trimmed.count > 4 && trimmed.count < 8, Int(trimmed) == nil, trimmed.isDate {
+            if creditCardDate == nil &&
+                trimmed.count >= 5 && // 12/20
+                trimmed.count <= 7 && // 12/2020
+                trimmed.isDate {
+                
                 creditCardDate = line
                 DispatchQueue.main.async {
                     self.labelCardDate?.text = line
@@ -328,7 +338,11 @@ public class CardScanner: UIViewController {
             }
 
             // Not used yet
-            if creditCardName == nil && trimmed.count > 10, Int(trimmed) == nil, line.contains(" "), trimmed.isOnlyAlpha {
+            if creditCardName == nil &&
+                trimmed.count > 10 &&
+                line.contains(" ") &&
+                trimmed.isOnlyAlpha {
+                
                 creditCardName = line
                 continue
             }
@@ -355,23 +369,28 @@ extension CardScanner: AVCaptureVideoDataOutputSampleBufferDelegate {
 
 // MARK: - Extensions
 
-extension String {
+private extension String {
     var isOnlyAlpha: Bool {
         return !isEmpty && range(of: "[^a-zA-Z]", options: .regularExpression) == nil
+    }
+
+    var isOnlyNumbers: Bool {
+        return !isEmpty && range(of: "[^0-9]", options: .regularExpression) == nil
     }
 
     // Date Pattern MM/YY or MM/YYYY
     var isDate: Bool {
         let arrayDate = components(separatedBy: "/")
         if arrayDate.count == 2 {
+            let currentYear = Calendar.current.component(.year, from: Date())
             if let month = Int(arrayDate[0]), let year = Int(arrayDate[1]) {
                 if month > 12 || month < 1 {
                     return false
                 }
-                if year < 50 && year > 20 {
+                if year < (currentYear - 2000 + 20) && year >= (currentYear - 2000) { // Between current year and 20 years ahead
                     return true
                 }
-                if year > 2020 && year < 2050 {
+                if year >= currentYear && year < (currentYear + 20) { // Between current year and 20 years ahead
                     return true
                 }
             }
