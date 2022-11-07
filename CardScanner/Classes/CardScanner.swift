@@ -289,7 +289,7 @@ public class CardScanner: UIViewController {
         let stillImageRequestHandler = VNImageRequestHandler(ciImage: croppedImage, options: [:])
         try? stillImageRequestHandler.perform([request])
 
-        guard let texts = request.results as? [VNRecognizedTextObservation], texts.count > 0 else {
+        guard let texts = request.results, texts.count > 0 else {
             // no text detected
             return
         }
