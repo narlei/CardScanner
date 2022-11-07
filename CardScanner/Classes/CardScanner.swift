@@ -47,7 +47,7 @@ public class CardScanner: UIViewController {
     public var buttonConfirmTitle = "Confirm"
     public var buttonConfirmBackgroundColor: UIColor = .red
     public var viewTitle = "Card scanner"
-    
+    let flashButton = UIButton(frame: .zero)
 
     // MARK: - Instance dependencies
 
@@ -220,12 +220,21 @@ public class CardScanner: UIViewController {
         buttonComplete?.layer.cornerRadius = 10
         buttonComplete?.layer.masksToBounds = true
         buttonComplete?.addTarget(self, action: #selector(scanCompleted), for: .touchUpInside)
-
+        view.addSubview(flashButton)
+        flashButton.translatesAutoresizingMaskIntoConstraints = false
+        flashButton.setImage(UIImage(systemName: "bolt.fill"), for: .normal)
+        NSLayoutConstraint.activate([
+            flashButton.bottomAnchor.constraint(equalTo: buttonComplete!.topAnchor, constant:  75),
+            flashButton.heightAnchor.constraint(equalToConstant: 40),
+            flashButton.widthAnchor.constraint(equalToConstant: 40)
+        ])
         view.backgroundColor = .black
     }
-    public func flash(state: Bool) {
+    @objc public func flash(state: Bool) {
         device?.torchMode = .auto
         try? device?.setTorchModeOn(level: state ? 1 : 0)
+        let imageName = state ? "bolt.fill" : "bolt.slash.fill"
+        flashButton.setImage(UIImage(systemName: imageName), for: .normal)
     }
 
     // MARK: - Clear on touch
