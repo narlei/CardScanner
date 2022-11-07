@@ -1,6 +1,6 @@
 version: "Apple Swift version 5.7.1 (swiftlang-5.7.1.135.3 clang-1400.0.29.51)"
 options: "71f94ebfd445ef92a56f6e87a4810efe8e44360886f973abf7d3f25e93e1e5c8"
-build_start_time: [1667849174, 870810985]
-build_end_time: [1667849188, 504198074]
+build_start_time: [1667850172, 459980964]
+build_end_time: [1667850173, 559910058]
 inputs:
   "/Users/kjoe/Desktop/CardScanner/CardScanner/Classes/CardScanner.swift": !private [1667847766, 370182037]

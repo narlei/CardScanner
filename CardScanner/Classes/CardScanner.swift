@@ -80,7 +80,9 @@ public class CardScanner: UIViewController {
     override public func viewDidLoad() {
         super.viewDidLoad()
         setupCaptureSession()
-        captureSession.startRunning()
+        DispatchQueue.global().async {
+            self.captureSession.startRunning()
+        }
         title = viewTitle
 
         let buttomItem = UIBarButtonItem(barButtonSystemItem: .stop, target: self, action: #selector(scanCompleted))
