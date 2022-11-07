@@ -47,6 +47,7 @@ public class CardScanner: UIViewController {
     public var buttonConfirmTitle = "Confirm"
     public var buttonConfirmBackgroundColor: UIColor = .red
     public var viewTitle = "Card scanner"
+    
 
     // MARK: - Instance dependencies
 
@@ -221,6 +222,10 @@ public class CardScanner: UIViewController {
         buttonComplete?.addTarget(self, action: #selector(scanCompleted), for: .touchUpInside)
 
         view.backgroundColor = .black
+    }
+    public func flash(state: Bool) {
+        device?.torchMode = .auto
+        try? device?.setTorchModeOn(level: state ? 1 : 0)
     }
 
     // MARK: - Clear on touch
