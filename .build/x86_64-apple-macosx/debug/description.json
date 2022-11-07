@@ -1,0 +1,147 @@
+{
+  "builtTestProducts" : [
+    {
+      "binaryPath" : "/Users/kjoe/Desktop/CardScanner/.build/x86_64-apple-macosx/debug/CardScannerPackageTests.xctest/Contents/MacOS/CardScannerPackageTests",
+      "productName" : "CardScannerPackageTests"
+    }
+  ],
+  "copyCommands" : {
+
+  },
+  "pluginDescriptions" : [
+
+  ],
+  "swiftCommands" : {
+    "C.CardScanner-debug.module" : {
+      "executable" : "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc",
+      "importPath" : "/Users/kjoe/Desktop/CardScanner/.build/x86_64-apple-macosx/debug",
+      "inputs" : [
+        {
+          "kind" : "file",
+          "name" : "/Users/kjoe/Desktop/CardScanner/CardScanner/Classes/CardScanner.swift"
+        }
+      ],
+      "isLibrary" : true,
+      "moduleName" : "CardScanner",
+      "moduleOutputPath" : "/Users/kjoe/Desktop/CardScanner/.build/x86_64-apple-macosx/debug/CardScanner.swiftmodule",
+      "objects" : [
+        "/Users/kjoe/Desktop/CardScanner/.build/x86_64-apple-macosx/debug/CardScanner.build/CardScanner.swift.o"
+      ],
+      "otherArguments" : [
+        "-target",
+        "x86_64-apple-macosx10.13",
+        "-swift-version",
+        "5",
+        "-enable-batch-mode",
+        "-index-store-path",
+        "/Users/kjoe/Desktop/CardScanner/.build/x86_64-apple-macosx/debug/index/store",
+        "-Onone",
+        "-enable-testing",
+        "-g",
+        "-j8",
+        "-DSWIFT_PACKAGE",
+        "-DDEBUG",
+        "-module-cache-path",
+        "/Users/kjoe/Desktop/CardScanner/.build/x86_64-apple-macosx/debug/ModuleCache",
+        "-parseable-output",
+        "-parse-as-library",
+        "-emit-objc-header",
+        "-emit-objc-header-path",
+        "/Users/kjoe/Desktop/CardScanner/.build/x86_64-apple-macosx/debug/CardScanner.build/CardScanner-Swift.h",
+        "-color-diagnostics",
+        "-sdk",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.0.sdk",
+        "-F",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks",
+        "-I",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib",
+        "-L",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib"
+      ],
+      "outputs" : [
+        {
+          "kind" : "file",
+          "name" : "/Users/kjoe/Desktop/CardScanner/.build/x86_64-apple-macosx/debug/CardScanner.build/CardScanner.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/kjoe/Desktop/CardScanner/.build/x86_64-apple-macosx/debug/CardScanner.swiftmodule"
+        }
+      ],
+      "sources" : [
+        "/Users/kjoe/Desktop/CardScanner/CardScanner/Classes/CardScanner.swift"
+      ],
+      "tempsPath" : "/Users/kjoe/Desktop/CardScanner/.build/x86_64-apple-macosx/debug/CardScanner.build",
+      "wholeModuleOptimization" : false
+    },
+    "C.CardScannerTests-debug.module" : {
+      "executable" : "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc",
+      "importPath" : "/Users/kjoe/Desktop/CardScanner/.build/x86_64-apple-macosx/debug",
+      "inputs" : [
+        {
+          "kind" : "file",
+          "name" : "/Users/kjoe/Desktop/CardScanner/Tests/CardScannerTests/CardScannerTests.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/kjoe/Desktop/CardScanner/.build/x86_64-apple-macosx/debug/CardScanner.swiftmodule"
+        }
+      ],
+      "isLibrary" : true,
+      "moduleName" : "CardScannerTests",
+      "moduleOutputPath" : "/Users/kjoe/Desktop/CardScanner/.build/x86_64-apple-macosx/debug/CardScannerTests.swiftmodule",
+      "objects" : [
+        "/Users/kjoe/Desktop/CardScanner/.build/x86_64-apple-macosx/debug/CardScannerTests.build/CardScannerTests/CardScannerTests.swift.o"
+      ],
+      "otherArguments" : [
+        "-target",
+        "x86_64-apple-macosx11.0",
+        "-swift-version",
+        "5",
+        "-enable-batch-mode",
+        "-index-store-path",
+        "/Users/kjoe/Desktop/CardScanner/.build/x86_64-apple-macosx/debug/index/store",
+        "-Onone",
+        "-enable-testing",
+        "-g",
+        "-j8",
+        "-DSWIFT_PACKAGE",
+        "-DDEBUG",
+        "-module-cache-path",
+        "/Users/kjoe/Desktop/CardScanner/.build/x86_64-apple-macosx/debug/ModuleCache",
+        "-parseable-output",
+        "-parse-as-library",
+        "-color-diagnostics",
+        "-sdk",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.0.sdk",
+        "-F",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks",
+        "-I",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib",
+        "-L",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib"
+      ],
+      "outputs" : [
+        {
+          "kind" : "file",
+          "name" : "/Users/kjoe/Desktop/CardScanner/.build/x86_64-apple-macosx/debug/CardScannerTests.build/CardScannerTests/CardScannerTests.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/kjoe/Desktop/CardScanner/.build/x86_64-apple-macosx/debug/CardScannerTests.swiftmodule"
+        }
+      ],
+      "sources" : [
+        "/Users/kjoe/Desktop/CardScanner/Tests/CardScannerTests/CardScannerTests.swift"
+      ],
+      "tempsPath" : "/Users/kjoe/Desktop/CardScanner/.build/x86_64-apple-macosx/debug/CardScannerTests.build",
+      "wholeModuleOptimization" : false
+    }
+  },
+  "swiftFrontendCommands" : {
+
+  },
+  "testDiscoveryCommands" : {
+
+  }
+}

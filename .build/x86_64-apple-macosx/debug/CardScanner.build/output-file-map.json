@@ -1,0 +1,11 @@
+{
+  "": {
+    "swift-dependencies": "/Users/kjoe/Desktop/CardScanner/.build/x86_64-apple-macosx/debug/CardScanner.build/master.swiftdeps"
+  },
+  "/Users/kjoe/Desktop/CardScanner/CardScanner/Classes/CardScanner.swift": {
+    "dependencies": "/Users/kjoe/Desktop/CardScanner/.build/x86_64-apple-macosx/debug/CardScanner.build/CardScanner.d",
+    "object": "/Users/kjoe/Desktop/CardScanner/.build/x86_64-apple-macosx/debug/CardScanner.build/CardScanner.swift.o",
+    "swiftmodule": "/Users/kjoe/Desktop/CardScanner/.build/x86_64-apple-macosx/debug/CardScanner.build/CardScanner~partial.swiftmodule",
+    "swift-dependencies": "/Users/kjoe/Desktop/CardScanner/.build/x86_64-apple-macosx/debug/CardScanner.build/CardScanner.swiftdeps"
+  }
+}

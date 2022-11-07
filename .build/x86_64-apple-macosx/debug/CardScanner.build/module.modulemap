@@ -1,0 +1,4 @@
+module CardScanner {
+    header "/Users/kjoe/Desktop/CardScanner/.build/x86_64-apple-macosx/debug/CardScanner.build/CardScanner-Swift.h"
+    requires objc
+}
