@@ -222,19 +222,35 @@ public class CardScanner: UIViewController {
         buttonComplete?.addTarget(self, action: #selector(scanCompleted), for: .touchUpInside)
         view.addSubview(flashButton)
         flashButton.translatesAutoresizingMaskIntoConstraints = false
-        flashButton.setImage(UIImage(systemName: "bolt.fill"), for: .normal)
+        flashButton.setBackgroundImage(UIImage(systemName: "bolt.fill"), for: .normal)
+        flashButton.addTarget(self, action: #selector(self.flash), for: .primaryActionTriggered)
+        flashButton.tintColor = .white
+        
         NSLayoutConstraint.activate([
-            flashButton.bottomAnchor.constraint(equalTo: buttonComplete!.topAnchor, constant:  75), 
+            flashButton.bottomAnchor.constraint(equalTo: buttonComplete!.topAnchor, constant:  -75),
             flashButton.heightAnchor.constraint(equalToConstant: 40),
-            flashButton.widthAnchor.constraint(equalToConstant: 40)
+            flashButton.widthAnchor.constraint(equalToConstant: 40),
+            flashButton.centerXAnchor.constraint(equalTo: buttonComplete!.centerXAnchor)
         ])
         view.backgroundColor = .black
     }
-    @objc public func flash(state: Bool) {
-        device?.torchMode = .auto
-        try? device?.setTorchModeOn(level: state ? 1 : 0)
-        let imageName = state ? "bolt.fill" : "bolt.slash.fill"
-        flashButton.setImage(UIImage(systemName: imageName), for: .normal)
+    @objc public func flash() {
+        guard let device else {return}
+        if device.hasTorch {
+            do {
+                try device.lockForConfiguration()
+                device.torchMode = device.isTorchActive ? .off : .on
+                device.unlockForConfiguration()
+                let imageName = device.isTorchActive ? "bolt.fill" : "bolt.slash.fill"
+                DispatchQueue.main.async {
+                    self.flashButton.setImage(UIImage(systemName: imageName), for: .normal)
+                }
+            } catch {
+                print("Torch could not be used")
+            }
+        } else {
+            print("Torch is not available")
+        }
     }
 
     // MARK: - Clear on touch
