@@ -224,7 +224,7 @@ public class CardScanner: UIViewController {
         flashButton.translatesAutoresizingMaskIntoConstraints = false
         flashButton.setImage(UIImage(systemName: "bolt.fill"), for: .normal)
         NSLayoutConstraint.activate([
-            flashButton.bottomAnchor.constraint(equalTo: buttonComplete!.topAnchor, constant:  75),
+            flashButton.bottomAnchor.constraint(equalTo: buttonComplete!.topAnchor, constant:  75), 
             flashButton.heightAnchor.constraint(equalToConstant: 40),
             flashButton.widthAnchor.constraint(equalToConstant: 40)
         ])
