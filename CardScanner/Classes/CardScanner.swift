@@ -86,6 +86,8 @@ public class CardScanner: UIViewController {
         let buttomItem = UIBarButtonItem(barButtonSystemItem: .stop, target: self, action: #selector(scanCompleted))
         buttomItem.tintColor = .white
         navigationItem.leftBarButtonItem = buttomItem
+        
+        self.setupTorch()
     }
 
     override public func viewDidLayoutSubviews() {
@@ -248,6 +250,7 @@ public class CardScanner: UIViewController {
 
     private func stop() {
         captureSession.stopRunning()
+        self.turnOffFlashlight()
     }
 
     // MARK: - Payment detection
@@ -346,6 +349,34 @@ public class CardScanner: UIViewController {
                 creditCardName = line
                 continue
             }
+        }
+    }
+    
+    func setupTorch() {
+            guard let device = device, device.hasTorch else {return}
+
+            do {
+                try device.lockForConfiguration()
+                
+                // Set the torch mode to auto
+                if device.isTorchModeSupported(.auto) {
+                    device.torchMode = .auto
+                }
+                device.unlockForConfiguration()
+            } catch {
+                // Handle any errors
+            }
+    }
+    
+    func turnOffFlashlight() {
+        guard let device = device, device.hasTorch else {return}
+        
+        do {
+            try device.lockForConfiguration()
+            device.torchMode = .off
+            device.unlockForConfiguration()
+        } catch {
+            // Handle any errors
         }
     }
 
